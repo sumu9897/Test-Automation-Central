@@ -1,6 +1,7 @@
 package org.example;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class Forms extends DriverSetup {
@@ -40,7 +41,31 @@ public class Forms extends DriverSetup {
     }
 
     @Test
-    public  void Dropdowns(){
+    public  void Dropdowns() throws InterruptedException {
         browser.get("https://testautomationcentral.com/demo/dropdown.html");
+        //Simple dropdown
+        browser.findElement(By.xpath("(//option[@value='option3'][normalize-space()='Option 3'])[1]")).click();
+        Thread.sleep(2000);
     }
+    @Test
+    public void TextBox() throws InterruptedException {
+        browser.get("https://testautomationcentral.com/demo/textboxes.html");
+
+        // Simple Text
+        WebElement inputElement = browser.findElement(By.xpath("(//input[@placeholder='Enter text'])[1]"));
+        inputElement.sendKeys("Thank you");
+        Thread.sleep(2000);
+
+        // Remove "you" from the text
+        String currentText = inputElement.getAttribute("value");
+        inputElement.clear();
+        inputElement.sendKeys(currentText.replace("you", ""));
+        Thread.sleep(2000);
+
+        // Write "thanks this site" in the input field
+        inputElement.clear();
+        inputElement.sendKeys("thanks this site");
+        Thread.sleep(2000);
+    }
+
 }
