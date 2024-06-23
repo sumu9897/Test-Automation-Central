@@ -68,4 +68,45 @@ public class Forms extends DriverSetup {
         Thread.sleep(2000);
     }
 
+    @Test
+    public  void Buttons() throws InterruptedException{
+        browser.get("https://testautomationcentral.com/demo/buttons.html");
+
+        //Basic Button Select
+        browser.findElement(By.xpath("(//button[normalize-space()='Click Me'])[1]")).click();
+        Thread.sleep(1000);
+
+        //Submit Button
+        browser.findElement(By.xpath("(//button[normalize-space()='Submit Button'])[1]")).click();
+        Thread.sleep(1000);
+
+        //Submit Button Click
+        browser.findElement(By.xpath("(//button[normalize-space()='Submit'])[1]")).click();
+        Thread.sleep(1000);
+
+        //Reset Button
+        browser.findElement(By.xpath("(//button[normalize-space()='Reset Button'])[1]")).click();
+        Thread.sleep(1000);
+
+        //Reset Button Click
+        browser.findElement(By.xpath("(//button[normalize-space()='Reset'])[1]")).click();
+        Thread.sleep(1000);
+
+        //Button With Icon
+        browser.findElement(By.xpath("(//button[normalize-space()='Button with Icon'])[1]")).click();
+        Thread.sleep(1000);
+
+        //Button With Icon
+        browser.findElement(By.xpath("(//button[normalize-space()='Icon Button'])[1]")).click();
+        Thread.sleep(1000);
+
+        //Disable Button
+        browser.findElement(By.xpath("(//button[normalize-space()='Disabled Button'])[1]")).click();
+        Thread.sleep(1000);
+
+        //Disable Button Click
+        browser.findElement(By.xpath("(//button[normalize-space()='Disabled'])[1]")).click();
+        Thread.sleep(1000);
+    }
+
 }
